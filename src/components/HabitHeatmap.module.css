@@ -1,0 +1,75 @@
+.container {
+  padding: 1.5rem;
+  background-color: var(--color-bg-surface);
+}
+
+.title {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 days per row? No, GitHub is 7 days per COLUMN. */
+  /* Actually, for a Sidebar, a Month view (7 cols) is better than a long horizontal strip. */
+  /* User said "Github style calendar on the left". Usually that's the contribution graph. */
+  /* If on the LEFT sidebar, it should probably be vertical or a square grid. */
+  /* Let's stick to a 7-column grid (Weeks) which is standard calendar/heatmap shape. */
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  background-color: var(--color-bg-elevated);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.cell:hover {
+  transform: scale(1.1);
+  border: 1px solid var(--color-text-muted);
+}
+
+.selected {
+  border: 2px solid var(--color-text-primary);
+  transform: scale(1.1);
+}
+
+.today {
+  position: relative;
+}
+
+.today::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  height: 40%;
+  background-color: var(--color-text-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+  justify-content: flex-end;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.legendCell {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}

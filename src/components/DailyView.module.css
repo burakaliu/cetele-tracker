@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.scoreCard {
+  background: linear-gradient(135deg, var(--color-bg-elevated), var(--color-bg-surface));
+  border-color: var(--color-accent-dim);
+}
+
+.scoreHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.progressBarContainer {
+  height: 8px;
+  background-color: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: var(--color-accent-primary);
+  border-radius: 4px;
+}
+
+.scoreValue {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.percentage {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.status {
+  font-size: 0.875rem;
+  color: var(--color-accent-hover);
+}
+
+.habitList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.habitCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  cursor: pointer; /* Allows clicking card to check? Checkbox handles it but generic click could work too */
+  transition: background-color 0.3s ease;
+}
+
+.habitCard.completedCard {
+  background-color: rgba(60, 75, 45, 0.15); /* Very subtle olive tint */
+}
+
+.habitInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.emoji {
+  font-size: 1.5rem;
+}
+
+.habitName {
+  font-size: 1.125rem;
+  font-weight: 400;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.completedText {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  gap: 1rem;
+  color: var(--color-text-secondary);
+  height: 60vh;
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-text-primary);
+}
+
+.arrow {
+  margin-top: 2rem;
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-10px);}
+  60% {transform: translateY(-5px);}
+}

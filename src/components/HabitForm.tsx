@@ -6,6 +6,7 @@ import { Card } from './ui/Card';
 import classes from './HabitForm.module.css';
 import { cn } from '../lib/utils';
 import { HABIT_ICONS } from '../constants/habitIcons';
+import type { HabitIconName } from '../constants/habitIcons';
 
 interface HabitFormProps {
   onClose: () => void;
@@ -13,7 +14,7 @@ interface HabitFormProps {
 
 export const HabitForm: React.FC<HabitFormProps> = ({ onClose }) => {
   const [name, setName] = useState('');
-  const [selectedIcon, setSelectedIcon] = useState(HABIT_ICONS[0].name);
+  const [selectedIcon, setSelectedIcon] = useState<HabitIconName>(HABIT_ICONS[0].name);
   const addHabit = useHabitStore((state) => state.addHabit);
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -109,15 +109,21 @@ export const Landing = () => {
                   <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-stone-400" />
 
                   <h3 className="font-mono text-xs uppercase tracking-widest text-stone-500 mb-4 flex items-center gap-2">
-                    <Lock size={12} /> Member Entry
+                    <Lock size={12} /> Sign In / Sign Up
                   </h3>
 
                   {emailSent ? (
                     <div className="text-center py-6">
                       <Mail className="mx-auto mb-3 text-olive" size={32} />
                       <p className="text-sm font-mono text-charcoal mb-2">Check your email!</p>
-                      <p className="text-xs text-stone-500">{email}</p>
-                      <p className="text-xs text-stone-400 mt-4">Click the link to sign in</p>
+                      <p className="text-xs text-stone-500 mb-1">{email}</p>
+                      <p className="text-xs text-stone-400 mt-4">Click the link to access your ledger</p>
+                      <button
+                        onClick={() => setEmailSent(false)}
+                        className="text-xs text-olive hover:underline mt-4 font-mono"
+                      >
+                        Use a different email
+                      </button>
                     </div>
                   ) : (
                     <form className="space-y-4" onSubmit={handleLogin}>
@@ -127,15 +133,20 @@ export const Landing = () => {
                         </div>
                       )}
 
-                      <input
-                        type="email"
-                        placeholder="Email address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full bg-transparent border-b border-stone-border py-2 text-sm font-mono focus:outline-none focus:border-olive transition-colors placeholder:text-stone-400"
-                        required
-                        disabled={isSubmitting}
-                      />
+                      <div>
+                        <input
+                          type="email"
+                          placeholder="Email address"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          className="w-full bg-transparent border-b border-stone-border py-2 text-sm font-mono focus:outline-none focus:border-olive transition-colors placeholder:text-stone-400"
+                          required
+                          disabled={isSubmitting}
+                        />
+                        <p className="text-xs text-stone-400 mt-2 font-mono">
+                          No password needed • We'll email you a magic link
+                        </p>
+                      </div>
 
                       <button
                         type="submit"
